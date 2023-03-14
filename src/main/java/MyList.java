@@ -1,3 +1,5 @@
+
+
 public interface MyList<T> extends Iterable<T>, Comparable<T>{
     /**
      * Метод, возвращающий величину массива
@@ -27,7 +29,7 @@ public interface MyList<T> extends Iterable<T>, Comparable<T>{
      * Метод, реализующий удаление из списка с сокращением списка на 1 элемент
      * @param index Элемент, который необходимо удалить
      */
-    void delete(int index);
+    T delete(int index);
     /**
      * Метод, реалтизующий выбор элемента из списка
      * @param index Индекс элемента, который нужно выбрать

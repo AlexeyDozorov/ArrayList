@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.SortedMap;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -19,6 +18,7 @@ public class Main {
         arrayList1.add(-4);
         arrayList1.add(1);
         arrayList1.add(0);
+        arrayList1.delete(2);
         System.out.println("\n" +"First AL");
         for (Object o: arrayList) {
             System.out.print(" " + o);

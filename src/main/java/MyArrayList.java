@@ -1,9 +1,10 @@
+
 import java.util.*;
 
 /**
  * Это основной класс реализации наисанного ArrayList
  */
-public class MyArrayList<T extends Comparable <T>> implements MyList<T>  {
+public class MyArrayList<T extends Comparable <T>> implements MyList<T> {
 
 
     /**
@@ -114,13 +115,16 @@ public class MyArrayList<T extends Comparable <T>> implements MyList<T>  {
      * @param index Элемент, который необходимо удалить
      */
     @Override
-    public void delete(int index) {
-        int element; //количество элементов после индекса для копирования второй части массива
-        T[] temp = array;
-        array = (T[]) new Object[temp.length - 1];
-        System.arraycopy(temp, 0, array, 0, index);
-        element = temp.length - index - 1;
-        System.arraycopy(temp, index + 1, array, index, element);
+    public T delete(int index) {
+        if (index < 0 || index >= this.size) {
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + this.size);
+        }
+        T removed = this.array[index];
+        for (int i = index; i < this.size - 1; i++) {
+            this.array[i] = this.array[i + 1];
+        }
+        this.size--;
+        return removed;
     }
 
     /**
@@ -176,5 +180,6 @@ public class MyArrayList<T extends Comparable <T>> implements MyList<T>  {
             System.out.print(" " + e);
         }
     }
+
 
 }
